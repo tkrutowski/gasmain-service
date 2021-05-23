@@ -1,6 +1,6 @@
 package net.focik.gasmain.infrastructure.inMemory;
 
-import net.focik.gasconnection.domain.port.IScopeGasConnectionRepository;
+import net.focik.gasmain.domain.port.IScopeGasConnectionRepository;
 import net.focik.gasconnection.infrastructure.dto.ScopeGasConnectionDto;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;

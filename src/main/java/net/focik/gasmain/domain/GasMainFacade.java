@@ -16,12 +16,12 @@ public class GasMainFacade {
     private IGasMainRepository gasMainRepository;
     private GasMainFactory gasMainFactory;
 
-    public Integer addGasConnection(GasMainDbDto customerDbDto) {
+    public Integer addGasMain(GasMainDbDto customerDbDto) {
          return gasMainRepository.add(customerDbDto);
     }
 
 
-    public IGasMainDto getGasConnectionDto(Integer id, DtoType dtoType) {
+    public IGasMainDto getGasMainDto(Integer id, DtoType dtoType) {
         int i=0;
         Optional<GasMainDbDto> byId = gasMainRepository.findById(id);
 

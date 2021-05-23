@@ -1,8 +1,6 @@
 package net.focik.gasmain.infrastructure.jpa;
 
 import lombok.AllArgsConstructor;
-import net.focik.gasconnection.domain.port.IGasConnectionRepository;
-import net.focik.gasconnection.infrastructure.dto.GasConnectionDbDto;
 import net.focik.gasmain.domain.port.IGasMainRepository;
 import net.focik.gasmain.infrastructure.dto.GasMainDbDto;
 import org.springframework.context.annotation.Primary;
@@ -15,7 +13,7 @@ import java.util.Optional;
 @Primary
 class GasMainRepositoryAdapter implements IGasMainRepository {
 
-    private IGasMainRepository gasMainRepository;
+    private IGasMainDtoRepository gasMainRepository;
 
     @Override
     public Integer add(GasMainDbDto gasMainDbDto) {

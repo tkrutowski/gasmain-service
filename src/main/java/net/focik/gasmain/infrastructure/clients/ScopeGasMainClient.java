@@ -26,7 +26,7 @@ public class ScopeGasMainClient implements IScopeGasMainRepository {
 
     private RestTemplate restTemplate ;
 
-    private static final String URI = "http://scope-gasmain-service/api/scopegasconnection/task/";
+    private static final String URI = "http://scope-gasmain-service/api/scopegasmain/task/";
 
     @HystrixCommand(fallbackMethod = "getFallbackListOfScopeGasMainDto",
             commandProperties = {

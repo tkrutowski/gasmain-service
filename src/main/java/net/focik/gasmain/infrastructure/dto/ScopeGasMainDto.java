@@ -15,13 +15,7 @@ import java.time.LocalDate;
 public class ScopeGasMainDto {
     private Integer id;
     private Integer idTask;
-    private String typeOfTask;
     private String message;
     private Integer diameter;
     private float lenghtWar;
-    private String material;
-    private String sdr;
-    private float lenghtProj;
-    private String gasCabinetProvider;
-    private LocalDate gasCabinetPickupDate;
 }
