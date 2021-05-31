@@ -18,5 +18,5 @@ public class GasMainTaskCalendarDto implements IGasMainDto {
     private Integer idCustomer;
     private Integer idSurveyor;
     private String taskNo;
-    private Integer idAddress;
+    private String address;
 }

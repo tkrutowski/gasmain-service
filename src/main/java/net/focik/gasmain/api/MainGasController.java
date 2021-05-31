@@ -1,6 +1,7 @@
 package net.focik.gasmain.api;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import net.focik.gasmain.domain.GasMainFacade;
 import net.focik.gasmain.domain.dto.IGasMainDto;
 import net.focik.gasmain.domain.share.DtoType;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-//@NoArgsConstructor
+@Log4j2
 @RequestMapping("/api/gasmain")
 class MainGasController {
 
@@ -30,13 +31,13 @@ class MainGasController {
 
     @GetMapping("/{id}")
     ResponseEntity<IGasMainDto> getGasMain(@PathVariable Integer id, @RequestParam(name = "type", defaultValue = "GAS_CONNECTION") DtoType dtoType){
-        int i=0;
-        IGasMainDto gasConnectionDto = gasMainFacade.getGasMainDto(id, dtoType);
-
-        if(gasConnectionDto == null)
+        log.info("GASMAIN-SERVICE: Try find gasmain for  id = " + id+ " and dtoType = "+dtoType);
+        IGasMainDto gasMainDto = gasMainFacade.getGasMainDto(id, dtoType);
+        log.info(gasMainDto != null ? "GASMAIN-SERVICE: Found gasmain for id = " + id + " and dtoType = "+dtoType: "GASMAIN-SERVICE: Not found gasmain for id = " + id+ " and dtoType = "+dtoType);
+        if(gasMainDto == null)
             return new ResponseEntity<>((IGasMainDto) null, HttpStatus.NOT_FOUND);
 
-        return new ResponseEntity<>(gasConnectionDto, HttpStatus.OK);
+        return new ResponseEntity<>(gasMainDto, HttpStatus.OK);
     }
 
 }

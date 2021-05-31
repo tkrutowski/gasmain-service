@@ -41,16 +41,16 @@ public class ScopeGasMainClient implements IScopeGasMainRepository {
                     @HystrixProperty(name = "maxQueueSize", value = "10")
             })
     public List<ScopeGasMainDto> findScopeGasMainByIdTask(Integer idTask) {
-        log.info("Try find scope-gasconnection for gasconnection id = " + idTask);
+        log.info("GASMAIN-SERVICE: Try find scope-gasconnection for gasconnection id = " + idTask);
         List<ScopeGasMainDto> connectionDtos = new ArrayList<>();
         try {
             ResponseEntity<ScopeGasMainDto[]> response =
                     restTemplate.getForEntity(URI + idTask, ScopeGasMainDto[].class);
 
             connectionDtos = List.of(response.getBody());
-            log.info("Found " + connectionDtos.size() + " scope-gasmain for gasmain id = " + idTask);
+            log.info("GASMAIN-SERVICE: Found " + connectionDtos.size() + " scope-gasmain for gasmain id = " + idTask);
         } catch (RestClientException ex) {
-            log.error("Error", ex.fillInStackTrace());            //TODO może rzucić wyjątek
+            log.error("GASMAIN-SERVICE: Error", ex.fillInStackTrace());            //TODO może rzucić wyjątek
             return connectionDtos;
         }
 
